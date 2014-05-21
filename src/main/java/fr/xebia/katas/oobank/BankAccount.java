@@ -36,11 +36,14 @@ class BalanceAmount {
 class DepositAmount {
     private final int amount;
 
-    private DepositAmount(int amount) {
+    private DepositAmount(int amount) throws DepositAmountCanNotBeNegativeOrZero {
+        if (amount < 0) {
+            throw new DepositAmountCanNotBeNegativeOrZero();
+        }
         this.amount = amount;
     }
 
-    public static DepositAmount of(int amount) {
+    public static DepositAmount of(int amount) throws DepositAmountCanNotBeNegativeOrZero {
         return new DepositAmount(amount);
     }
 
@@ -63,4 +66,7 @@ class WithdrawalAmount {
     public int amount() {
         return this.amount;
     }
+}
+
+class DepositAmountCanNotBeNegativeOrZero extends RuntimeException {
 }

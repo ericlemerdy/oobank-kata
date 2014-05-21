@@ -21,6 +21,11 @@ public class BankAccountTest {
         assertThat(balance.amout()).isEqualTo(300);
     }
 
+    @Test(expected = DepositAmountCanNotBeNegativeOrZero.class)
+    public void should_not_deposit_negative_amounts() {
+        DepositAmount.of(-100);
+    }
+
     @Test
     public void should_withdraw_amounts() throws Exception {
         BankAccount bankAccount = new BankAccount();
