@@ -8,7 +8,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class BankAccountTest {
 
     @Test
-    public void should_deposit_amounts() throws Exception {
+    public void should_deposit_amounts() {
         BankAccount bankAccount = new BankAccount();
         DepositAmount depositAmount;
         depositAmount = DepositAmount.of(100);
@@ -27,7 +27,7 @@ public class BankAccountTest {
     }
 
     @Test
-    public void should_withdraw_amounts() throws Exception {
+    public void should_withdraw_amounts() {
         BankAccount bankAccount = new BankAccount();
         WithdrawalAmount depositAmount;
         depositAmount = WithdrawalAmount.of(100);
