@@ -16,9 +16,9 @@ public class BankAccountTest {
         depositAmount = DepositAmount.of(200);
         bankAccount.deposit(depositAmount);
 
-        BalanceAmount balance = bankAccount.balance();
+        int balance = bankAccount.balance();
 
-        assertThat(balance.amout()).isEqualTo(300);
+        assertThat(balance).isEqualTo(300);
     }
 
     @Test(expected = DepositAmountCanNotBeNegativeOrZero.class)
@@ -35,8 +35,8 @@ public class BankAccountTest {
         depositAmount = WithdrawalAmount.of(200);
         bankAccount.withdraw(depositAmount);
 
-        BalanceAmount balance = bankAccount.balance();
+        int balance = bankAccount.balance();
 
-        assertThat(balance.amout()).isEqualTo(-300);
+        assertThat(balance).isEqualTo(-300);
     }
 }

@@ -7,8 +7,8 @@ public class BankAccount {
         balance.addAmount(i);
     }
 
-    public BalanceAmount balance() {
-        return balance;
+    public int balance() {
+        return balance.amout();
     }
 
     public void withdraw(WithdrawalAmount withdrawalAmount) {
