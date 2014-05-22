@@ -3,6 +3,9 @@ package fr.xebia.katas.oobank;
 public class BankAccount {
     private BalanceAmount balance = new BalanceAmount();
 
+    protected BankAccount() {
+    }
+
     public void deposit(DepositAmount i) {
         balance.addAmount(i);
     }
@@ -14,6 +17,35 @@ public class BankAccount {
     public void withdraw(WithdrawalAmount withdrawalAmount) {
         balance.removeAmount(withdrawalAmount);
     }
+
+    public TransferableAccount transfert(int amount) {
+        if (amount > balance.amout()) {
+            throw new TransferCanNotBeGreaterThanBalance();
+        }
+        return new TransferableAccount(this, amount);
+    }
+}
+
+class Bank {
+    public BankAccount createClient() {
+        return new BankAccount();
+    }
+}
+
+class TransferableAccount {
+    private BankAccount origin;
+    private int amount;
+
+    public TransferableAccount(BankAccount origin, int amount) {
+        this.origin = origin;
+        this.amount = amount;
+    }
+
+    public void to(BankAccount destination) {
+        origin.withdraw(WithdrawalAmount.of(this.amount));
+        destination.deposit(DepositAmount.of(this.amount));
+    }
+
 }
 
 class BalanceAmount {
@@ -69,4 +101,7 @@ class WithdrawalAmount {
 }
 
 class DepositAmountCanNotBeNegativeOrZero extends RuntimeException {
+}
+
+class TransferCanNotBeGreaterThanBalance extends RuntimeException {
 }
