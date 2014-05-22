@@ -12,7 +12,7 @@ Develop an simple Bank application while following strictly the 9 rules below. Y
 9. Don’t use any getters/setters/properties
 
 ## Bank application
-Think of your personnal bank account experience. When in doubt go for the simplest solution.
+Think of your personal bank account experience. When in doubt go for the simplest solution.
 
 - Basic account operation (deposit, withdrawal)
 - Transfer to another client in the same bank
