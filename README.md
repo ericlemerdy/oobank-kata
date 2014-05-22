@@ -14,8 +14,8 @@ Develop an simple Bank application while following strictly the 9 rules below. Y
 ## Bank application
 Think of your personal bank account experience. When in doubt go for the simplest solution.
 
-- Basic account operation (deposit, withdrawal)
-- Transfer to another client in the same bank
-- Account statements (include all operations with date, amount and balance for each)
-- Printing account statements (to console)
-- Statement filters (time period, amount less than/greater than)
+✓ Basic account operation (deposit, withdrawal)
+✓ Transfer to another client in the same bank
+□ Account statements (include all operations with date, amount and balance for each)
+□ Printing account statements (to console)
+□ Statement filters (time period, amount less than/greater than)
